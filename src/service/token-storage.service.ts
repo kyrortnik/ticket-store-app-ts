@@ -22,15 +22,15 @@ export class TokenStorageService {
     return window.localStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user: any): void {
+  public saveUser(user: string): void {
     window.localStorage.removeItem(USER_KEY);
-    window.localStorage.setItem(USER_KEY, JSON.stringify(user));
+    window.localStorage.setItem(USER_KEY, user);
   }
 
   public getUser(): any {
     const user = window.localStorage.getItem(USER_KEY);
     if (user) {
-      return JSON.parse(user);
+      return user;
     }
 
     return {};

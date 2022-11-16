@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-// import { HomeComponent } from './home/home.component';
+import { CinemaListComponent } from './cinema-list/cinema-list.component';
 // import { ProfileComponent } from './profile/profile.component';
 // import { BoardAdminComponent } from './board-admin/board-admin.component';
 // import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
@@ -20,7 +20,7 @@ import { authInterceptorProviders } from './helper/auth.interceptor';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    // HomeComponent,
+    CinemaListComponent
     // ProfileComponent,
     // BoardAdminComponent,
     // BoardModeratorComponent,

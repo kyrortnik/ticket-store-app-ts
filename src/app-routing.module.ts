@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CinemaListComponent } from './cinema-list/cinema-list.component';
+import { CinemaDetailComponent } from './cinema-detail/cinema-detail.component';
+import { HallDetailComponent } from './hall-detail/hall-detail.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 // import { ProfileComponent } from './profile/profile.component';
 // import { BoardUserComponent } from './board-user/board-user.component';
 // import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
@@ -18,6 +21,9 @@ const routes: Routes = [
   // { path: 'mod', component: BoardModeratorComponent },
   // { path: 'admin', component: BoardAdminComponent },
   { path: 'cinemas', component: CinemaListComponent },
+  { path: 'cinema/:cinemaId', component: CinemaDetailComponent},
+  { path: 'halls/:hallId', component: HallDetailComponent},
+  { path: 'movies/:movieId', component: MovieDetailComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

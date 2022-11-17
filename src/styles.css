@@ -1,9 +1,4 @@
-body {
-padding: 20px;
-}
-h1 {
-border-bottom: 1px solid gray;
-}
+
 .cinemas {
 list-style: none;
 }
@@ -28,13 +23,13 @@ clear: both;
 height: 160px;
 padding-top: 10px;
 }
-.thumb {
+/*.thumb {
 float: left;
 height: 100px;
 margin: -0.5em 1em 1.5em 0;
 padding-bottom: 1em;
 width: 100px;
-}
+}*/
 .cinema {
 background-color: white;
 border: 1px solid black;

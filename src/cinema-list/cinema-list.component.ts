@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CinemaService } from '../service/cinema.service';
+import {CinemaDetailComponent } from '../cinema-detail/cinema-detail.component';
+
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
+
 
 @Component({
   selector: 'cinema-list',
@@ -8,17 +16,26 @@ import { CinemaService } from '../service/cinema.service';
 })
 export class CinemaListComponent implements OnInit {
 
-  // content?: json;
-  // cinemas?: string;
-  cinemas : any;
+  cinemaDetailsList: Observable<CinemaDetailComponent[]>;
 
-  constructor(private cinemaService: CinemaService) { }
+  cinemaDetails: CinemaDetailComponent[];
 
-  ngOnInit(): void {
+  selectedId: number;
+
+  constructor(private cinemaService: CinemaService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+
+    this.cinemaDetailsList = this.route.paramMap.pipe(
+        switchMap(params => {
+            this.selectedId = Number(params.get('cinemaId'));
+            return this.cinemaService.getAll();
+        })
+    );
     this.cinemaService.getAll().subscribe(
       data => {
         // this.content = data;
-        this.cinemas = data;
+        this.cinemaDetails = data;
         // this.cinemas = data;
       },
       err => {

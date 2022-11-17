@@ -18,11 +18,14 @@
          <!--Body content-->
          <ul class="cinemas">
             <!-- <li *ngFor="let cinema of cinemas | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail"> -->
-            <li *ngFor="let cinema of cinemas " class="thumbnail">
-               <a href="/cinemas/{{cinema.id}}" class="thumb">
-               <img src="{{cinema.imageUrl}}" alt="{{cinema.name}}" />
+            <li *ngFor="let cinema of cinemaDetails " class="thumbnail">
+               <a href="/cinema/{{cinema.id}}"  class="nav-link" >
+                  
+               <!-- <img ng-src="{{cinema.imageUrl}}" alt="{{cinema.name}}" /> -->
+               <img [attr.src]="cinema.imageUrl" alt="{{cinema.name}}" />
                </a>
-               <a href="/cinemas/{{cinema.id}}">{{cinema.name}}</a>
+               <!-- <a href="/cinema/{{cinema.id}}"  class="nav-link" routerLink="cinema">{{cinema.name}}</a> -->
+                 <a href="/cinema/{{cinema.id}}"  class="nav-link" >{{cinema.name}}</a>
                <p>Opened in: {{cinema.dtOpened | date}}</p>
             </li>
          </ul>

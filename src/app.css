@@ -1,0 +1,88 @@
+body {
+padding: 20px;
+}
+h1 {
+border-bottom: 1px solid gray;
+}
+.cinemas {
+list-style: none;
+}
+.cinemas li {
+clear: both;
+height: 115px;
+padding-top: 15px;
+}
+.halls {
+list-style: none;
+}
+.halls li {
+clear: both;
+height: 115px;
+padding-top: 15px;
+}
+.movies {
+list-style: none;
+}
+.movies li {
+clear: both;
+height: 160px;
+padding-top: 10px;
+}
+.thumb {
+float: left;
+height: 100px;
+margin: -0.5em 1em 1.5em 0;
+padding-bottom: 1em;
+width: 100px;
+}
+.cinema {
+background-color: white;
+border: 1px solid black;
+float: left;
+height: 400px;
+margin-bottom: 2em;
+margin-right: 3em;
+padding: 2em;
+width: 400px;
+}
+.hall {
+background-color: white;
+border: 1px solid black;
+float: left;
+height: 400px;
+margin-bottom: 2em;
+margin-right: 3em;
+padding: 2em;
+width: 400px;
+}
+.movie {
+background-color: white;
+border: 1px solid black;
+float: left;
+height: 400px;
+margin-bottom: 2em;
+margin-right: 3em;
+padding: 2em;
+width: 400px;
+}
+.specs {
+clear: both;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+.specs dt {
+font-weight: bold;
+}
+.specs > li {
+display: inline-block;
+vertical-align: top;
+width: 200px;
+}
+.specs > li > span {
+font-size: 1.2em;
+font-weight: bold;
+}
+.buy-ticket {
+text-align: center;
+}

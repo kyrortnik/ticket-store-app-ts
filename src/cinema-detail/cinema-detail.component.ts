@@ -3,14 +3,12 @@ import { CinemaService } from '../service/cinema.service';
 
 @Component({
   selector: 'cinema-list',
-  templateUrl: './cinema-list.component.html'
+  templateUrl: './cinema-detail.component.html'
   // styleUrls: ['./cinema-list.component.css']
 })
-export class CinemaListComponent implements OnInit {
-
+export class CinemaDetailComponent implements OnInit {
   // content?: json;
-  // cinemas?: string;
-  cinemas : any;
+  cinemas?: string;
 
   constructor(private cinemaService: CinemaService) { }
 
@@ -19,7 +17,6 @@ export class CinemaListComponent implements OnInit {
       data => {
         // this.content = data;
         this.cinemas = data;
-        // this.cinemas = data;
       },
       err => {
         // this.content = JSON.parse(err.error).message;

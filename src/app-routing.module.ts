@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'cinema/:cinemaId', component: CinemaDetailComponent},
   { path: 'halls/:hallId', component: HallDetailComponent},
   { path: 'movies/:movieId', component: MovieDetailComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 

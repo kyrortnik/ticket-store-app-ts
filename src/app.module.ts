@@ -11,6 +11,9 @@ import { CinemaListComponent } from './cinema-list/cinema-list.component';
 import { CinemaDetailComponent } from './cinema-detail/cinema-detail.component';
 import { HallDetailComponent } from './hall-detail/hall-detail.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+// import {HallDTO} from './dto/hallDTO';
+// import {MovieDTO} from './dto/movieDTO';
+// import {TicketDTO} from './dto/ticketDTO';
 // import { ProfileComponent } from './profile/profile.component';
 // import { BoardAdminComponent } from './board-admin/board-admin.component';
 // import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
@@ -26,7 +29,11 @@ import { authInterceptorProviders } from './helper/auth.interceptor';
     CinemaListComponent,
     CinemaDetailComponent,
     HallDetailComponent,
-    MovieDetailComponent
+    MovieDetailComponent/*,
+    HallDTO,
+    MovieDTO,
+    TicketDTO*/
+
   ],
   imports: [
     BrowserModule,

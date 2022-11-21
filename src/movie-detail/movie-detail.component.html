@@ -6,8 +6,36 @@
       <dd>{{length}}</dd>
    </li>
 </ul>
-<div class="buy-ticket">
-   <a href="#!/tickets/dummyUrl">
-      <button>Buy Ticket</button>
-   </a>
+
+<form  name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+
+<!-- <div class="form-group">
+   <input
+   type="hidden"
+   name="movieId"
+   [(ngModel)]="id"
+   #movieId="ngModel"
+   />     
 </div>
+
+<div class="form-group">
+   <input
+   type="hidden"
+   name="hallId"
+   [(ngModel)]="hallId"
+   #movieId="ngModel"
+   />     
+</div>
+
+<div class="form-group">
+   <input
+   type="hidden"
+   name="sessionDateTime"
+   [(ngModel)]="sessionDateTime"
+   #movieId="ngModel"
+   />     
+</div> -->
+<div class="form-group">
+   <button >Buy Ticket</button>
+</div>
+</form>

@@ -3,6 +3,10 @@ import { HttpResponse } from '@angular/common/http';
 import { AuthService } from '../service/auth.service';
 import { TokenStorageService } from '../service/token-storage.service';
 
+import { Observable } from 'rxjs';
+
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +21,9 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService,
+   private tokenStorage: TokenStorageService,
+   private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -29,21 +35,23 @@ export class LoginComponent implements OnInit {
     const { username, password } = this.form;
 
     this.authService.login(username, password).subscribe(
-      resp => {
+      (resp : HttpResponse<any>) => {
+         console.log(resp);
+         console.log(resp.headers.get('Authorization'));
 
-        const map = new Map(Object.entries(resp));
-  
-        this.tokenStorage.saveToken(map.get('accessToken') as string);
-        this.tokenStorage.saveUser(map.get('user') as string);
+        this.tokenStorage.saveToken(resp.headers.get('Authorization'));
+        // this.tokenStorage.saveUser(map.get('user') as string);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.reloadPage();
-      },
+        // window.location.reload();
+        this.router.navigate(['/cinemas']);
+      }/*,
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
-      }
+      }*/
     );
   }
 

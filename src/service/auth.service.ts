@@ -8,8 +8,8 @@ const AUTH_API = 'http://localhost:8080/';
 const httpOptions = {
   headers: new HttpHeaders({
    'Content-Type': 'application/json'
-    // 'Content-Type': 'application/x-www-form-urlencoded'
-    })
+    }),
+    observe: 'response' as 'response'
 };
 
 @Injectable({
@@ -18,8 +18,8 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) { }
 
-   login(username: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'login?login=' + username + '&password=' + password, {
+   login(username: string, password: string): any {
+    return this.http.post<any>(AUTH_API + 'login?login=' + username + '&password=' + password, {
       username,
       password
     },

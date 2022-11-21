@@ -1,5 +1,4 @@
 export class HallDTO {
   id: number;
-  name: string;
-  
+  name: string;  
 }

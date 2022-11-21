@@ -3,21 +3,18 @@
 <ul class="specs" routerLinkActive="active">
    <li>
       <span>Has 3D Support</span>
-      <!-- <dd>{{$ctrl.hall.has3DSupport | checkmark}}</dd> -->
       <dd>{{has3DSupport}}</dd>
    </li>
    <li>
       <span>Has IMAX Support</span>
-      <!-- <dd>{{$ctrl.hall.hasIMAXSupport | checkmark}}</dd> -->
       <dd>{{hasIMAXSupport}}</dd>
    </li>
 </ul>
 <div class="col-md-10">
    <h1>Movies in rotation</h1>
    <ul class="movies">
-      <!-- <li ng-repeat="movie in hall.movies" class="thumbnail"> -->
          <li *ngFor="let movie of movies" class="thumbnail">
-         <a    routerLink="/movies/{{movie.id}}" class="thumb">
+         <a  routerLink="/movies/{{movie.id}}" class="thumb">
          <img [attr.src]="movie.posterLink" alt="{{movie.title}}" />
          </a>
          <a routerLink="/movies/{{movie.id}}">{{movie.title}}</a>

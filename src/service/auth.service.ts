@@ -25,6 +25,7 @@ export class AuthService {
     },
      httpOptions);
   }
+
   
   register(login: string, email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'api/v1/users/register', {

@@ -19,8 +19,4 @@ export class CinemaService {
   getOne(id: number): Observable<any> {
     return this.http.get(CINEMA_API_URL + id, {responseType: 'json'});
   }
-
-  // getHallsForCinema(cinemaId: number ): Observable<any> {
-  //   return this.http.get(HALL_API_URL + cinemaId, {responseType: 'json'});
-  // }
 }

@@ -8,11 +8,9 @@ import { switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
-
 @Component({
   selector: 'cinema-list',
   templateUrl: './cinema-list.component.html'
-  // styleUrls: ['./cinema-list.component.css']
 })
 export class CinemaListComponent implements OnInit {
 
@@ -25,7 +23,7 @@ export class CinemaListComponent implements OnInit {
   constructor(private cinemaService: CinemaService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-
+   
     this.cinemaDetailsList = this.route.paramMap.pipe(
         switchMap(params => {
             this.selectedId = Number(params.get('cinemaId'));
@@ -34,15 +32,8 @@ export class CinemaListComponent implements OnInit {
     );
     this.cinemaService.getAll().subscribe(
       data => {
-        // this.content = data;
         this.cinemaDetails = data;
-        // this.cinemas = data;
-      },
-      err => {
-        // this.content = JSON.parse(err.error).message;
       }
     );
   }
-
-  // onSubmit() : void {}
 }

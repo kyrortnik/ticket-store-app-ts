@@ -55,89 +55,28 @@ export class MovieDetailComponent implements OnInit {
               }
             });
 
-
-        // const observable =  this.router.events.pipe(filter((evt: any) => evt instanceof RoutesRecognized),pairwise());
-
-        // const subscription = observable.subscribe(async (events: RoutesRecognized[]) => { this.previousUrl = await events[0].urlAfterRedirects}).unsubscribe();
-
-
-        // console.log( this.previousUrl);
-
-           // this.router.events
-           //  .pipe(filter((evt: any) => evt instanceof RoutesRecognized), pairwise())
-           //  .subscribe((events: RoutesRecognized[]) => {
-
-           //      this.previousUrl = events[0].urlAfterRedirects;
-           //      console.log('inside:' + this.previousUrl);
-
-
-        // let obs = this.router.events
-        //     .pipe(filter((evt: any) => evt instanceof RoutesRecognized), pairwise())
-        //     .subscribe((events: RoutesRecognized[]) => {
-
-        //         return events[0].urlAfterRedirects;
-        //         // console.log('inside:' + this.previousUrl);
-        //     });
-        //     console.log(obs);
-
-        // this.previousUrl = 
-
-        // this.hallId = await this.router.events
-        //     .pipe(filter((evt: any) => evt instanceof RoutesRecognized), pairwise())
-        //     .subscribe((events: RoutesRecognized[]) => {
-
-        //         this.previousUrl = events[0].urlAfterRedirects;
-        //         console.log('inside:' + this.previousUrl);
-        //     });
-
-        // this.movieDTO = new MovieDetailComponent();
-        // movieDTO.id = Number(this.route.snapshot.paramMap.get('movieId'));
-
-        // this.hallDTO = new HallDetailComponent();
-        // this.hallDTO = Number(this.route.snapshot.paramMap.get('hallId'));
-
-        // this.ticketDTO.movieDTO.id = Number(this.route.snapshot.paramMap.get('movieId'));
-        // this.ticketDTO.hallDTO.id = Number(this.route.snapshot.paramMap.get('hallId'));
-        // this.ticketDTO.sessionDateTime = '2022-12-17T03:24:00';
-        // this.ticketDTO.hallDTO = this.hallDTO;
-        // this.ticketDTO.movieDTO = this.movieDTO;
-
         this.movieService.getOne(this.movieId).subscribe(
             data => {
                 this.posterLink = data.posterLink;
                 this.id = data.id;
                 this.title = data.title;
-                // this.movies = data.moviesInRotation;
                 this.length = data.length;
-                // this.hasIMAXSupport = data.hasIMAXSupport;
             });
 
-
-        //  this.route.queryParams.subscribe(params => {
-        //   this.id = params['id'];
-        // });
-        // this.cinemaService.getOne(id).subscribe(
     }
 
      onSubmit() {
-
-         
-        console.log(this.hallId);
-        console.log(this.previousUrl);
-        console.log(this.movieId);
+        
         this.ticketDTO = new TicketDTO();
 
         let movie = new MovieDTO();
         movie.id = this.movieId;
+
         let hall = new HallDTO();
-
         let myArray = window.localStorage.getItem('previousUrl').split("/");
-
         this.hallId = Number(myArray.pop());
-           
-
-
         hall.id = this.hallId;
+
         let seat = new SeatDTO();
         seat.number = 1;
         let row = new RowDTO();
@@ -148,37 +87,10 @@ export class MovieDetailComponent implements OnInit {
         this.ticketDTO.movie = movie;
         this.ticketDTO.hall = hall;
 
-
-        // this.ticketDTO.movie = new MovieDTO();
-
-
         this.ticketService.createTicket(this.sessionDateTime, movie, hall, seat)
             .subscribe(
                 (data: any) => {
-                    // this.ticketDTO = data;
                     console.log(data.body);
                 });
-    }
-
-  //   getData(): Subscription<String> {
-
-  //       return  this.router.events
-  //           .pipe(filter((evt: any) => evt instanceof RoutesRecognized), pairwise())
-  //           .subscribe((events: RoutesRecognized[]) => {
-
-  //               return events[0].urlAfterRedirects;
-  //               // return
-  //               // // console.log(this.previousUrl);
-
-  //               // let myArray = this.previousUrl.split("/");
-
-  //               // // this.hallId = Number(myArray.pop());
-  //               // return Number(myArray.pop());
-  //               // console.log(this.hallId);
-  //           });
-  //   // return this.mockService.getMockData().toPromise();
-  // }
-
-
-  
+    }  
 }

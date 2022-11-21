@@ -36,23 +36,16 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       (resp : HttpResponse<any>) => {
-         console.log(resp);
-         console.log(resp.headers.get('Authorization'));
 
         this.tokenStorage.saveToken(resp.headers.get('Authorization'));
         // this.tokenStorage.saveUser(map.get('user') as string);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.reloadPage();
-        // window.location.reload();
-        this.router.navigate(['/cinemas']);
-      }/*,
-      err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }*/
-    );
+        this.router.navigate(['/cinemas']).then(() => {
+        window.location.reload();
+     });    
+    });
   }
 
   reloadPage(): void {

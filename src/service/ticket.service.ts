@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import {TicketDetailComponent } from '../ticket-detail/ticket-detail.component'
 import {HallDTO} from '../dto/hallDTO';
 import {MovieDTO} from '../dto/movieDTO';
 import {SeatDTO} from '../dto/seatDTO';
@@ -13,8 +12,7 @@ const httpOptions = {
   headers: new HttpHeaders({
    'Content-Type': 'application/json'
     }),
-    observe: 'response' as 'response'/*,
-    responseType: 'json'*/
+    observe: 'response' as 'response'
 };
 
 
@@ -29,5 +27,4 @@ export class TicketService {
      sessionDateTime, movie, hall, seat
     }, httpOptions);
   }
-
 }

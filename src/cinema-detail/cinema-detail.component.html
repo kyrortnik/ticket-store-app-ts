@@ -14,10 +14,10 @@
    <h1>Available halls</h1>
    <ul class="halls">
       <li *ngFor="let hall of cinemaHalls" class="thumbnail">
-         <a href="/halls/{{hall.id}}" class="nav-link">
+         <a routerLink="/halls/{{hall.id}}" class="nav-link">
          <img [attr.src]="hall.imageUrl" alt="{{hall.name}}" />
          </a>
-         <a href="/halls/{{hall.id}}">{{hall.name}}</a>
+         <a routerLink="/halls/{{hall.id}}">{{hall.name}}</a>
       </li>
    </ul>
 </div>
